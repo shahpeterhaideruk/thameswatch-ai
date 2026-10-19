@@ -33,7 +33,7 @@ def pick(obj,*names):
     return ''
 
 def fetch_all():
-    url=BASE; params={'latitude':LAT,'longitude':LON,'radius':RADIUS_KM,'_limit':250}
+    url=BASE; params={'latitude':LAT,'longitude':LON,'radius':RADIUS_KM,'limit':250}
     seen=set(); results=[]
     for page in range(1,101):
         response=requests.get(url,params=params,timeout=45,headers={'Accept':'application/json','User-Agent':'ThamesWatchAI/1.0'})
