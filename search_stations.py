@@ -37,6 +37,10 @@ def fetch_all():
     seen=set(); results=[]
     for page in range(1,101):
         response=requests.get(url,params=params,timeout=45,headers={'Accept':'application/json','User-Agent':'ThamesWatchAI/1.0'})
+        print("HTTP status:", response.status_code)
+print("Request URL:", response.url)
+print("Allowed methods:", response.headers.get("Allow", "Not supplied"))
+print("Response preview:", response.text[:500])
         response.raise_for_status()
         data=response.json()
         if isinstance(data,list):
